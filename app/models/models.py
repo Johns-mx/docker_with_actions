@@ -6,10 +6,10 @@ from datetime import datetime
 
 
 class VersionAPI(BaseModel):
-    version: str= "v1.1.0"
+    version: str= "v1.1.1"
     major: int= 1
     minor: int= 1
-    patch: int= 0
+    patch: int= 1
 
 version= VersionAPI()
 
