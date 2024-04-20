@@ -3,7 +3,5 @@
 __pycache__
 .vscode
 .pytest_cache
-Dockerfile
-docker-compose.yml
 .github/
 init.sql
