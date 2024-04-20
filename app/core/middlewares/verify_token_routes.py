@@ -1,6 +1,6 @@
 from fastapi import Request, status
 from fastapi.routing import APIRoute
-from core.security.functions import response_modelx
+from config.functions import response_modelx
 from core.security.jwt import validate_access_token
 from models.models import ResponseModel
 

@@ -1,6 +1,8 @@
+from fastapi import status
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
-from models.models import VersionAPI
+from db.models import User
+from models.models import ResponseModel, UserUpdate, UserUpdateInternal, VersionAPI
 
 
 version = VersionAPI()
@@ -23,3 +25,12 @@ def response_modelx(status_code, error: bool, message: str, res, headers=None):
             "version": version.version
         }),
     )
+
+
+async def updating_user_data(user_to_update: User, new_user_data: UserUpdateInternal) -> User:
+    """[method]: Actualiza el usuario (user_to_update) con los nuevos datos proporcionados en new_user_data."""
+    for field, value in new_user_data.__dict__.items():
+        if hasattr(user_to_update, field) and (value is not None and value != user_to_update.__dict__[field]):
+            setattr(user_to_update, field, value)
+    return user_to_update
+

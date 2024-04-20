@@ -1,6 +1,6 @@
 from fastapi import APIRouter, status
 from core.middlewares.verify_token_routes import VerifyTokenRoute
-from core.security.functions import response_modelx
+from config.functions import response_modelx
 
 
 movies_route = APIRouter(route_class=VerifyTokenRoute)
